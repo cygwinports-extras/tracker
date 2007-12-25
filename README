@@ -1,0 +1,277 @@
+tracker
+------------------------------------------
+Tracker is a powerful desktop-neutral first class object database,
+tag/metadata database, search tool and indexer.
+
+It consists of a common object database that allows entities to have an 
+almost infinte number of properties, metadata (both embedded/harvested 
+as well as user definable), a comprehensive database of keywords/tags 
+and links to other entities.
+
+Runtime requirements:
+  cygwin-1.5.24-2
+  GConf2-2.20.1-1
+  atk-1.20.0-1
+  gamin-0.1.9-1
+  gdk-pixbuf2-2.12.2-1
+  glib2-2.14.4-1
+  gmime2-2.2.9-1
+  gnome-vfs2-2.20.1-1
+  gstreamer010-0.10.15-1
+  gtk2-x11-2.12.2-1
+  libart_lgpl2-2.3.19-1
+  libcairo2-1.4.12-1
+  libdbus-glib_1_2-0.74-1
+  libdbus1_3-1.0.2-1
+  libexempi3-1.99.5-1
+  libexif12-0.6.16-1
+  libglade2-2.6.2-1
+  libgnome-desktop2-2.18.3-1
+  libgnome2-2.20.1.1-1
+  libgnomeui2-2.20.1.1-1
+  libgsf114-1.14.7-1
+  libintl8-0.15-1
+  libnotify-0.4.4-1
+  libpng12-1.2.23-1
+  libpoppler-glib_2-0.6.2-1
+  libqdbm14-1.8.77-1
+  libsqlite3_0-3.5.2-1
+  libunac1-1.8.0-1
+  libxml2-2.6.30-1
+  pango-1.18.3-1
+  zlib-1.2.3-2
+  coreutils
+  djvulibre
+  evince
+  gnumeric
+  ImageMagick
+  libxslt
+  unzip
+  xpdf
+  w3m
+  wv
+
+Build requirements:
+(besides corresponding -devel packages)
+  cygwin-1.5.24-2
+  autoconf2.5-2.61-1
+  automake1.10-1.10-1
+  binutils-20060817-1
+  cygport-0.3.7-1
+  gawk-3.1.5-4
+  gcc-core-3.4.4-3
+  gnome-common-2.20.0-1
+  gnome-doc-utils-0.12.0-1
+  gtk-doc-1.9-1
+  intltool-0.36.3-1
+  libtool1.5-1.5.23a-2
+  make-3.81-1
+  pkg-config-0.21-1
+  rarian-0.6.0-1
+  sed-4.1.5-2
+
+Canonical website:
+  http://www.gnome.org/
+
+Canonical download:
+  ftp://ftp.gnome.org/pub/gnome/sources/tracker/
+
+-------------------------------------------
+
+Build instructions:
+  unpack tracker-0.6.4-X-src.tar.bz2
+    if you use setup to install this src package, it will be
+	 unpacked under /usr/src automatically
+  cd /usr/src
+  cygport ./tracker-0.6.4-X.cygport all
+
+This will create:
+  /usr/src/tracker-0.6.4-X-src.tar.bz2
+  /usr/src/tracker-0.6.4-X.tar.bz2
+
+-------------------------------------------
+
+Files included in the binary package:
+
+  /etc/postinstall/tracker.sh
+  /etc/xdg/autostart/tracker-applet.desktop
+  /etc/xdg/autostart/trackerd.desktop
+  /usr/bin/o3totxt.exe
+  /usr/bin/tracker-applet.exe
+  /usr/bin/tracker-extract.exe
+  /usr/bin/tracker-files.exe
+  /usr/bin/tracker-meta-folder.exe
+  /usr/bin/tracker-preferences.exe
+  /usr/bin/tracker-query.exe
+  /usr/bin/tracker-search-tool.exe
+  /usr/bin/tracker-search.exe
+  /usr/bin/tracker-stats.exe
+  /usr/bin/tracker-status.exe
+  /usr/bin/tracker-tag.exe
+  /usr/bin/tracker-thumbnailer.exe
+  /usr/bin/trackerd.exe
+  /usr/lib/deskbar-applet/modules-2.20-compatible/tracker-module.py
+  /usr/lib/tracker/filters/application/csv_filter
+  /usr/lib/tracker/filters/application/msword_filter
+  /usr/lib/tracker/filters/application/pdf_filter
+  /usr/lib/tracker/filters/application/tab-separated-values_filter
+  /usr/lib/tracker/filters/application/vnd.ms-excel_filter
+  /usr/lib/tracker/filters/application/vnd.oasis.opendocument.presentation-template_filter
+  /usr/lib/tracker/filters/application/vnd.oasis.opendocument.presentation_filter
+  /usr/lib/tracker/filters/application/vnd.oasis.opendocument.spreadsheet-template_filter
+  /usr/lib/tracker/filters/application/vnd.oasis.opendocument.spreadsheet_filter
+  /usr/lib/tracker/filters/application/vnd.oasis.opendocument.text-template_filter
+  /usr/lib/tracker/filters/application/vnd.oasis.opendocument.text_filter
+  /usr/lib/tracker/filters/application/vnd.stardivision.writer_filter
+  /usr/lib/tracker/filters/application/vnd.sun.xml.calc.template_filter
+  /usr/lib/tracker/filters/application/vnd.sun.xml.calc_filter
+  /usr/lib/tracker/filters/application/vnd.sun.xml.draw_filter
+  /usr/lib/tracker/filters/application/vnd.sun.xml.impress.template_filter
+  /usr/lib/tracker/filters/application/vnd.sun.xml.impress_filter
+  /usr/lib/tracker/filters/application/vnd.sun.xml.writer.template_filter
+  /usr/lib/tracker/filters/application/vnd.sun.xml.writer_filter
+  /usr/lib/tracker/filters/application/x-abiword_filter
+  /usr/lib/tracker/filters/application/x-gnumeric_filter
+  /usr/lib/tracker/filters/text/csv_filter
+  /usr/lib/tracker/filters/text/djvu_filter
+  /usr/lib/tracker/filters/text/html_filter
+  /usr/lib/tracker/filters/text/spreadsheet_filter
+  /usr/lib/tracker/filters/text/tab-separated-values_filter
+  /usr/lib/tracker/filters/text/x-comma-separated-values_filter
+  /usr/lib/tracker/filters/text/x-tex_filter
+  /usr/lib/tracker/filters/text/xml_filter
+  /usr/lib/tracker/thumbnailers/application/pdf_thumbnailer
+  /usr/lib/tracker/thumbnailers/application/vnd.oasis.opendocument.graphics_thumbnailer
+  /usr/lib/tracker/thumbnailers/application/vnd.oasis.opendocument.presentation_thumbnailer
+  /usr/lib/tracker/thumbnailers/application/vnd.oasis.opendocument.spreadsheet_thumbnailer
+  /usr/lib/tracker/thumbnailers/application/vnd.oasis.opendocument.text_thumbnailer
+  /usr/lib/tracker/thumbnailers/image/jpeg_thumbnailer
+  /usr/lib/tracker/thumbnailers/image/png_thumbnailer
+  /usr/share/applications/tracker-preferences.desktop
+  /usr/share/applications/tracker-search-tool.desktop
+  /usr/share/dbus-1/services/tracker.service
+  /usr/share/doc/Cygwin/tracker-0.6.4.README
+  /usr/share/doc/tracker-0.6.4/AUTHORS
+  /usr/share/doc/tracker-0.6.4/COPYING
+  /usr/share/doc/tracker-0.6.4/ChangeLog
+  /usr/share/doc/tracker-0.6.4/INSTALL
+  /usr/share/doc/tracker-0.6.4/MAINTAINERS
+  /usr/share/doc/tracker-0.6.4/NEWS
+  /usr/share/doc/tracker-0.6.4/README
+  /usr/share/doc/tracker-0.6.4/TODO
+  /usr/share/icons/hicolor/16x16/apps/tracker.png
+  /usr/share/icons/hicolor/22x22/apps/tracker.png
+  /usr/share/icons/hicolor/24x24/apps/tracker.png
+  /usr/share/icons/hicolor/32x32/apps/tracker.png
+  /usr/share/icons/hicolor/48x48/apps/tracker.png
+  /usr/share/icons/hicolor/scalable/apps/tracker.svg
+  /usr/share/locale/ar/LC_MESSAGES/tracker.mo
+  /usr/share/locale/be@latin/LC_MESSAGES/tracker.mo
+  /usr/share/locale/ca/LC_MESSAGES/tracker.mo
+  /usr/share/locale/de/LC_MESSAGES/tracker.mo
+  /usr/share/locale/dz/LC_MESSAGES/tracker.mo
+  /usr/share/locale/en_GB/LC_MESSAGES/tracker.mo
+  /usr/share/locale/es/LC_MESSAGES/tracker.mo
+  /usr/share/locale/et/LC_MESSAGES/tracker.mo
+  /usr/share/locale/fi/LC_MESSAGES/tracker.mo
+  /usr/share/locale/fr/LC_MESSAGES/tracker.mo
+  /usr/share/locale/gl/LC_MESSAGES/tracker.mo
+  /usr/share/locale/hu/LC_MESSAGES/tracker.mo
+  /usr/share/locale/it/LC_MESSAGES/tracker.mo
+  /usr/share/locale/lt/LC_MESSAGES/tracker.mo
+  /usr/share/locale/mk/LC_MESSAGES/tracker.mo
+  /usr/share/locale/nb/LC_MESSAGES/tracker.mo
+  /usr/share/locale/nl/LC_MESSAGES/tracker.mo
+  /usr/share/locale/oc/LC_MESSAGES/tracker.mo
+  /usr/share/locale/pl/LC_MESSAGES/tracker.mo
+  /usr/share/locale/pt/LC_MESSAGES/tracker.mo
+  /usr/share/locale/pt_BR/LC_MESSAGES/tracker.mo
+  /usr/share/locale/ru/LC_MESSAGES/tracker.mo
+  /usr/share/locale/sl/LC_MESSAGES/tracker.mo
+  /usr/share/locale/sv/LC_MESSAGES/tracker.mo
+  /usr/share/locale/zh_CN/LC_MESSAGES/tracker.mo
+  /usr/share/man/man1/tracker-applet.1.gz
+  /usr/share/man/man1/tracker-extract.1.gz
+  /usr/share/man/man1/tracker-files.1.gz
+  /usr/share/man/man1/tracker-meta-folder.1.gz
+  /usr/share/man/man1/tracker-preferences.1.gz
+  /usr/share/man/man1/tracker-query.1.gz
+  /usr/share/man/man1/tracker-search-tool.1.gz
+  /usr/share/man/man1/tracker-search.1.gz
+  /usr/share/man/man1/tracker-stats.1.gz
+  /usr/share/man/man1/tracker-status.1.gz
+  /usr/share/man/man1/tracker-tag.1.gz
+  /usr/share/man/man1/tracker-thumbnailer.1.gz
+  /usr/share/man/man1/trackerd.1.gz
+  /usr/share/man/man5/tracker.cfg.5.gz
+  /usr/share/man/man7/tracker-services.7.gz
+  /usr/share/tracker/icons/thumbnail_frame.png
+  /usr/share/tracker/icons/tracker-applet-default.png
+  /usr/share/tracker/icons/tracker-applet-indexing1.png
+  /usr/share/tracker/icons/tracker-applet-indexing2.png
+  /usr/share/tracker/icons/tracker-applet-paused.png
+  /usr/share/tracker/languages/stopwords.da
+  /usr/share/tracker/languages/stopwords.de
+  /usr/share/tracker/languages/stopwords.en
+  /usr/share/tracker/languages/stopwords.es
+  /usr/share/tracker/languages/stopwords.fi
+  /usr/share/tracker/languages/stopwords.fr
+  /usr/share/tracker/languages/stopwords.it
+  /usr/share/tracker/languages/stopwords.nb
+  /usr/share/tracker/languages/stopwords.nl
+  /usr/share/tracker/languages/stopwords.pt
+  /usr/share/tracker/languages/stopwords.ru
+  /usr/share/tracker/languages/stopwords.sv
+  /usr/share/tracker/services/application.metadata
+  /usr/share/tracker/services/audio.metadata
+  /usr/share/tracker/services/default.metadata
+  /usr/share/tracker/services/default.service
+  /usr/share/tracker/services/document.metadata
+  /usr/share/tracker/services/email.metadata
+  /usr/share/tracker/services/file.metadata
+  /usr/share/tracker/services/image.metadata
+  /usr/share/tracker/services/video.metadata
+  /usr/share/tracker/sqlite-cache.sql
+  /usr/share/tracker/sqlite-email.sql
+  /usr/share/tracker/sqlite-metadata.sql
+  /usr/share/tracker/sqlite-service-stored-procs.sql
+  /usr/share/tracker/sqlite-service-triggers.sql
+  /usr/share/tracker/sqlite-service-types.sql
+  /usr/share/tracker/sqlite-service.sql
+  /usr/share/tracker/sqlite-stored-procs.sql
+  /usr/share/tracker/sqlite-tracker-triggers.sql
+  /usr/share/tracker/sqlite-tracker.sql
+  /usr/share/tracker/sqlite-user-data.sql
+  /usr/share/tracker/tracker-introspect.xml
+  /usr/share/tracker/tracker-preferences.glade
+
+(libtracker0)
+  /usr/bin/cygtracker-gtk-0.dll
+  /usr/bin/cygtrackerclient-0.dll
+
+(libtracker-devel)
+  /usr/include/libtracker-gtk/tracker-gtk.h
+  /usr/include/libtracker-gtk/tracker-keyword-store.h
+  /usr/include/libtracker-gtk/tracker-metadata-tile.h
+  /usr/include/libtracker-gtk/tracker-tag-bar.h
+  /usr/include/libtracker-gtk/tracker-ui.h
+  /usr/include/libtracker-gtk/tracker-utils.h
+  /usr/include/tracker-client.h
+  /usr/include/tracker.h
+  /usr/lib/libtracker-gtk.dll.a
+  /usr/lib/libtracker-gtk.la
+  /usr/lib/libtrackerclient.dll.a
+  /usr/lib/libtrackerclient.la
+  /usr/lib/pkgconfig/libtracker-gtk.pc
+  /usr/lib/pkgconfig/tracker.pc
+
+------------------
+
+Port Notes:
+
+----- version 0.6.4-1 -----
+Initial release for Cygwin.
+
+
+Cygwin port maintained by:
+http://cygwinports.dotsrc.org/

@@ -1,0 +1,20 @@
+inherit gnome2
+
+DESCRIPTION="GNOME desktop search"
+HOMEPAGE="http://www.gnome.org/projects/tracker/"
+SRC_URI="http://www.gnome.org/~jamiemcc/${PN}/${P}.tar.bz2"
+
+abi=0
+PKG_NAMES="${PN} lib${PN}${abi} lib${PN}-devel"
+PKG_HINTS="bin lib devel"
+PKG_CONTENTS[0]="--exclude=*.dll etc/ usr/bin/ usr/lib/deskbar-applet/
+                 usr/lib/tracker/ usr/share/"
+PKG_CONTENTS[1]="usr/bin/*-${abi}.dll"
+PKG_CONTENTS[2]='usr/include/ usr/lib/lib* usr/lib/pkgconfig/'
+
+CYGCONF_ARGS="
+	--enable-external-qdbm
+	--enable-file-monitoring=fam
+	--enable-video-extractor=gstreamer
+"
+CPPFLAGS+=" -Dtimezonevar"

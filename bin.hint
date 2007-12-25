@@ -1,0 +1,10 @@
+category: Gnome
+requires: cygwin libtracker0 libtracker-gtk0 GConf2 atk gamin gdk-pixbuf2 glib2 gmime2 gnome-vfs2 gstreamer010 gtk2-x11 libart_lgpl2 libcairo2 libdbus-glib_1_2 libdbus1_3 libexempi3 libexif12 libglade2 libgnome-desktop2 libgnome2 libgnomeui2 libgsf114 libintl8 libnotify libpng12 libpoppler-glib_2 libqdbm14 libsqlite3_0 libunac1 libxml2 pango zlib coreutils djvulibre evince gnumeric ImageMagick libxslt unzip xpdf w3m wv
+sdesc: "GNOME search tool and indexer"
+ldesc: "Tracker is a powerful desktop-neutral first class object 
+database, tag/metadata database, search tool and indexer.
+
+It consists of a common object database that allows entities to have an
+almost infinte number of properties, metadata (both embedded/harvested
+as well as user definable), a comprehensive database of keywords/tags
+and links to other entities."
