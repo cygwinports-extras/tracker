@@ -1,0 +1,22 @@
+inherit gnome2
+
+DESCRIPTION="GNOME desktop search"
+HOMEPAGE="http://www.gnome.org/projects/tracker/"
+
+PATCH_URI="0.7.7-no-undefined.patch"
+
+PKG_NAMES="${PN} libtracker0.7_0 libtracker0.7-devel"
+PKG_HINTS="bin lib devel"
+tracker_CONTENTS="--exclude=*.dll etc/ usr/bin/ usr/lib/deskbar-applet/
+                  usr/lib/tracker* usr/share/"
+libtracker0_7_0_CONTENTS="usr/bin/*-0.7-0.dll"
+libtracker0_7_devel_CONTENTS='usr/include/ usr/lib/lib* usr/lib/pkgconfig/'
+
+CYGCONF_ARGS="
+	--libexecdir=/usr/lib/tracker-${PV_MAJ_MIN}
+	--disable-devkit-power
+	--disable-hal
+	--enable-libstreamanalyzer
+	--enable-libvorbis
+	--enable-video-extractor=gstreamer
+"

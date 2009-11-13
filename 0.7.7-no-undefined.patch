@@ -1,0 +1,52 @@
+--- origsrc/tracker-0.7.7/src/libtracker-client/Makefile.am	2009-10-15 10:00:46.000000000 -0500
++++ src/tracker-0.7.7/src/libtracker-client/Makefile.am	2009-11-12 22:33:12.190609000 -0600
+@@ -16,7 +16,7 @@ libtracker_clientincdir = $(includedir)/
+ libtracker_client_@TRACKER_API_VERSION@_la_SOURCES = tracker.c
+ 
+ libtracker_client_@TRACKER_API_VERSION@_la_LDFLAGS = 	\
+-	-version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE)
++	-version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE) -no-undefined
+ 
+ libtracker_client_@TRACKER_API_VERSION@_la_LIBADD =	\
+ 	$(GLIB2_LIBS) 					\
+--- origsrc/tracker-0.7.7/src/libtracker-common/Makefile.am	2009-11-12 08:33:44.000000000 -0600
++++ src/tracker-0.7.7/src/libtracker-common/Makefile.am	2009-11-12 22:33:56.120285600 -0600
+@@ -104,7 +104,7 @@ libtracker-common.vala.stamp: $(libtrack
+ 	$(AM_V_GEN)touch $@
+ 
+ libtracker_common_la_LDFLAGS = 				\
+-	-version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE)
++	-version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE) -no-undefined
+ 
+ libtracker_common_la_LIBADD = 				\
+ 	$(top_builddir)/src/libstemmer/libstemmer.la	\
+--- origsrc/tracker-0.7.7/src/libtracker-data/Makefile.am	2009-11-12 08:33:44.000000000 -0600
++++ src/tracker-0.7.7/src/libtracker-data/Makefile.am	2009-11-12 22:34:09.302308600 -0600
+@@ -42,7 +42,7 @@ libtracker-data.vala.stamp: $(libtracker
+ 	touch $@
+ 
+ libtracker_data_la_LDFLAGS =						\
+-	-version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE)
++	-version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE) -no-undefined
+ 
+ libtracker_data_la_LIBADD = 						\
+ 	$(top_builddir)/src/libtracker-common/libtracker-common.la	\
+--- origsrc/tracker-0.7.7/src/libtracker-gtk/Makefile.am	2009-10-15 10:00:46.000000000 -0500
++++ src/tracker-0.7.7/src/libtracker-gtk/Makefile.am	2009-11-12 22:34:26.477938600 -0600
+@@ -31,4 +31,4 @@ libtracker_gtk_@TRACKER_API_VERSION@_la_
+ 	$(GCOV_LIBS)
+ 
+ libtracker_gtk_@TRACKER_API_VERSION@_la_LDFLAGS = 					\
+-	-version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE)
++	-version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE) -no-undefined
+--- origsrc/tracker-0.7.7/src/libtracker-miner/Makefile.am	2009-10-15 10:00:46.000000000 -0500
++++ src/tracker-0.7.7/src/libtracker-miner/Makefile.am	2009-11-12 22:34:42.686366800 -0600
+@@ -48,7 +48,7 @@ libtracker_minerinclude_HEADERS = 			\
+ 	tracker-miner-fs.h
+ 
+ libtracker_miner_la_LDFLAGS = \
+-	-version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE)
++	-version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE) -no-undefined
+ 
+ libtracker_miner_la_LIBADD = 				\
+ 	$(top_builddir)/src/libstemmer/libstemmer.la	\
