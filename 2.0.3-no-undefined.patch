@@ -1,0 +1,223 @@
+--- origsrc/tracker-2.0.3/src/libtracker-common/Makefile.am	2017-08-05 14:51:59.000000000 -0500
++++ src/tracker-2.0.3/src/libtracker-common/Makefile.am	2018-02-12 03:08:51.755932400 -0600
+@@ -60,6 +60,8 @@ if BUILD_LIBICU_PARSER
+   libtracker_common_la_SOURCES += tracker-parser-libicu.c
+ endif
+ 
++libtracker_common_la_LDFLAGS = -release $(TRACKER_API_VERSION) -no-undefined
++
+ libtracker_common_la_LIBADD = \
+ 	$(BUILD_LIBS) \
+ 	$(LIBTRACKER_COMMON_LIBS) \
+--- origsrc/tracker-2.0.3/src/libtracker-control/Makefile.am	2017-07-26 06:32:44.000000000 -0500
++++ src/tracker-2.0.3/src/libtracker-control/Makefile.am	2018-02-12 00:59:07.469186800 -0600
+@@ -21,6 +21,7 @@ libtracker_controlinclude_HEADERS =
+ 
+ libtracker_control_@TRACKER_API_VERSION@_la_LDFLAGS =    \
+ 	$(DTAGS_LDFLAGS)                                 \
++	-no-undefined                                    \
+ 	-version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE)
+ if !ENABLE_GCOV 
+ # Using enable_gcov instead of have_unit_test because when doing a release
+--- origsrc/tracker-2.0.3/src/libtracker-data/Makefile.am	2018-02-05 11:52:32.000000000 -0600
++++ src/tracker-2.0.3/src/libtracker-data/Makefile.am	2018-02-12 03:13:20.141996800 -0600
+@@ -54,6 +54,10 @@ libtracker_data_la_SOURCES =
+ 	tracker-ontologies.c                           \
+ 	tracker-property.c
+ 
++libtracker_data_la_LDFLAGS = -release $(TRACKER_API_VERSION) -no-undefined
++libtracker_data_la_LDFLAGS += -Wl,libtracker-sparql.dll.a
++libtracker_data_la_DEPENDENCIES = libtracker-sparql.dll.a
++
+ libtracker_data_la_LIBADD =                            \
+ 	$(top_builddir)/src/gvdb/libgvdb.la \
+ 	$(top_builddir)/src/libtracker-common/libtracker-common.la \
+@@ -97,6 +101,9 @@ gsettings_SCHEMAS = org.freedesktop.Trac
+ 
+ @GSETTINGS_RULES@
+ 
++libtracker-sparql.dll.a: libtracker-sparql.def
++	$(AM_V_GEN)$(DLLTOOL) -D cygtracker-sparql-$(TRACKER_API_VERSION)-0.dll -d $< -l $@
++
+ # Dist / Clean rules for all data
+ BUILT_SOURCES = \
+ 	tracker-data-enum-types.c                     \
+--- origsrc/tracker-2.0.3/src/libtracker-data/libtracker-sparql.def	1969-12-31 18:00:00.000000000 -0600
++++ src/tracker-2.0.3/src/libtracker-data/libtracker-sparql.def	2018-02-12 03:10:19.703838400 -0600
+@@ -0,0 +1,144 @@
++EXPORTS
++tracker_namespace_manager_add_prefix
++tracker_namespace_manager_expand_uri
++tracker_namespace_manager_get_default
++tracker_namespace_manager_get_type
++tracker_namespace_manager_has_prefix
++tracker_namespace_manager_lookup_prefix
++tracker_namespace_manager_new
++tracker_namespace_manager_print_turtle
++tracker_notifier_event_get_event_type
++tracker_notifier_event_get_id
++tracker_notifier_event_get_location
++tracker_notifier_event_get_type
++tracker_notifier_event_get_urn
++tracker_notifier_event_type_get_type
++tracker_notifier_flags_get_type
++tracker_notifier_get_type
++tracker_notifier_new
++tracker_resource_add_boolean
++tracker_resource_add_double
++tracker_resource_add_gvalue
++tracker_resource_add_int
++tracker_resource_add_int64
++tracker_resource_add_relation
++tracker_resource_add_string
++tracker_resource_add_take_relation
++tracker_resource_add_uri
++tracker_resource_compare
++tracker_resource_get_first_boolean
++tracker_resource_get_first_double
++tracker_resource_get_first_int
++tracker_resource_get_first_int64
++tracker_resource_get_first_relation
++tracker_resource_get_first_string
++tracker_resource_get_first_uri
++tracker_resource_get_identifier
++tracker_resource_get_type
++tracker_resource_get_values
++tracker_resource_identifier_compare_func
++tracker_resource_new
++tracker_resource_print_sparql_update
++tracker_resource_print_turtle
++tracker_resource_set_boolean
++tracker_resource_set_double
++tracker_resource_set_gvalue
++tracker_resource_set_identifier
++tracker_resource_set_int
++tracker_resource_set_int64
++tracker_resource_set_relation
++tracker_resource_set_string
++tracker_resource_set_take_relation
++tracker_resource_set_uri
++tracker_sparql_builder_append
++tracker_sparql_builder_construct
++tracker_sparql_builder_construct_embedded_insert
++tracker_sparql_builder_construct_update
++tracker_sparql_builder_delete_close
++tracker_sparql_builder_delete_open
++tracker_sparql_builder_get_length
++tracker_sparql_builder_get_result
++tracker_sparql_builder_get_state
++tracker_sparql_builder_get_type
++tracker_sparql_builder_graph_close
++tracker_sparql_builder_graph_open
++tracker_sparql_builder_insert_close
++tracker_sparql_builder_insert_open
++tracker_sparql_builder_insert_silent_open
++tracker_sparql_builder_new
++tracker_sparql_builder_new_embedded_insert
++tracker_sparql_builder_new_update
++tracker_sparql_builder_object
++tracker_sparql_builder_object_blank_close
++tracker_sparql_builder_object_blank_open
++tracker_sparql_builder_object_boolean
++tracker_sparql_builder_object_date
++tracker_sparql_builder_object_double
++tracker_sparql_builder_object_int64
++tracker_sparql_builder_object_iri
++tracker_sparql_builder_object_string
++tracker_sparql_builder_object_unvalidated
++tracker_sparql_builder_object_variable
++tracker_sparql_builder_predicate
++tracker_sparql_builder_predicate_iri
++tracker_sparql_builder_prepend
++tracker_sparql_builder_state_get_type
++tracker_sparql_builder_subject
++tracker_sparql_builder_subject_iri
++tracker_sparql_builder_subject_variable
++tracker_sparql_builder_where_close
++tracker_sparql_builder_where_open
++tracker_sparql_connection_construct
++tracker_sparql_connection_flags_get_type
++tracker_sparql_connection_get
++tracker_sparql_connection_get_async
++tracker_sparql_connection_get_domain
++tracker_sparql_connection_get_finish
++tracker_sparql_connection_get_namespace_manager
++tracker_sparql_connection_get_type
++tracker_sparql_connection_load
++tracker_sparql_connection_load_async
++tracker_sparql_connection_load_finish
++tracker_sparql_connection_local_new
++tracker_sparql_connection_local_new_async
++tracker_sparql_connection_local_new_finish
++tracker_sparql_connection_query
++tracker_sparql_connection_query_async
++tracker_sparql_connection_query_finish
++tracker_sparql_connection_remote_new
++tracker_sparql_connection_set_domain
++tracker_sparql_connection_statistics
++tracker_sparql_connection_statistics_async
++tracker_sparql_connection_statistics_finish
++tracker_sparql_connection_update
++tracker_sparql_connection_update_array_async
++tracker_sparql_connection_update_array_finish
++tracker_sparql_connection_update_async
++tracker_sparql_connection_update_blank
++tracker_sparql_connection_update_blank_async
++tracker_sparql_connection_update_blank_finish
++tracker_sparql_connection_update_finish
++tracker_sparql_cursor_close
++tracker_sparql_cursor_construct
++tracker_sparql_cursor_get_boolean
++tracker_sparql_cursor_get_connection
++tracker_sparql_cursor_get_double
++tracker_sparql_cursor_get_integer
++tracker_sparql_cursor_get_n_columns
++tracker_sparql_cursor_get_string
++tracker_sparql_cursor_get_type
++tracker_sparql_cursor_get_value_type
++tracker_sparql_cursor_get_variable_name
++tracker_sparql_cursor_is_bound
++tracker_sparql_cursor_next
++tracker_sparql_cursor_next_async
++tracker_sparql_cursor_next_finish
++tracker_sparql_cursor_rewind
++tracker_sparql_cursor_set_connection
++tracker_sparql_error_quark
++tracker_sparql_escape_string
++tracker_sparql_escape_uri
++tracker_sparql_escape_uri_printf
++tracker_sparql_escape_uri_vprintf
++tracker_sparql_get_uuid_urn
++tracker_sparql_value_type_get_type
+--- origsrc/tracker-2.0.3/src/libtracker-miner/Makefile.am	2017-07-26 06:32:44.000000000 -0500
++++ src/tracker-2.0.3/src/libtracker-miner/Makefile.am	2018-02-12 01:00:12.840908400 -0600
+@@ -92,6 +92,7 @@ libtracker_minerinclude_HEADERS =
+ 
+ libtracker_miner_@TRACKER_API_VERSION@_la_LDFLAGS =    \
+ 	$(DTAGS_LDFLAGS)                               \
++	-no-undefined                                  \
+ 	-version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE)
+ if !ENABLE_GCOV 
+ # Using enable_gcov instead of have_unit_test because when doing a release
+--- origsrc/tracker-2.0.3/src/libtracker-sparql-backend/Makefile.am	2018-02-06 08:19:52.000000000 -0600
++++ src/tracker-2.0.3/src/libtracker-sparql-backend/Makefile.am	2018-02-12 01:00:34.303866000 -0600
+@@ -31,6 +31,7 @@ libtracker_sparql_@TRACKER_API_VERSION@_
+ 
+ libtracker_sparql_@TRACKER_API_VERSION@_la_LDFLAGS =   \
+ 	$(DTAGS_LDFLAGS)                               \
++	-no-undefined                                  \
+ 	-version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE) \
+ 	-export-symbols-regex '^(tracker_sparql_(connection|cursor|builder|escape|error|value|get)_.*|tracker_namespace_manager_.*|tracker_resource_.*|tracker_notifier_.*)'
+ 
+--- origsrc/tracker-2.0.3/tests/libtracker-miner/Makefile.am	2017-12-02 09:56:18.000000000 -0600
++++ src/tracker-2.0.3/tests/libtracker-miner/Makefile.am	2018-02-12 03:07:51.771921700 -0600
+@@ -39,8 +39,8 @@ AM_CPPFLAGS = \
+ 	$(LIBTRACKER_MINER_CFLAGS)
+ 
+ LDADD = \
+-	$(top_builddir)/src/libtracker-miner/libtracker-miner-@TRACKER_API_VERSION@.la \
+ 	$(top_builddir)/src/libtracker-miner/libtracker-miner-private.la \
++	$(top_builddir)/src/libtracker-miner/libtracker-miner-@TRACKER_API_VERSION@.la \
+ 	$(top_builddir)/src/libtracker-sparql-backend/libtracker-sparql-@TRACKER_API_VERSION@.la \
+ 	$(top_builddir)/src/libtracker-common/libtracker-common.la \
+ 	$(BUILD_LIBS) \

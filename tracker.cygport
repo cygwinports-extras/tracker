@@ -1,0 +1,54 @@
+inherit gnome2
+
+NAME="tracker"
+VERSION=2.0.3
+RELEASE=1
+CATEGORY="GNOME"
+SUMMARY="GNOME search tool and indexer"
+DESCRIPTION="Tracker is a powerful desktop-neutral first class object
+database, tag/metadata database, search tool and indexer.  It consists of a
+common object database that allows entities to have an almost infinte number
+of properties, metadata (both embedded/harvested as well as user definable),
+a comprehensive database of keywords/tags and links to other entities."
+HOMEPAGE="http://projects.gnome.org/tracker/"
+
+PATCH_URI="
+	2.0.3-no-undefined.patch
+	2.0.3-fam.patch
+"
+
+PKG_NAMES="${NAME} libtracker2.0_0 libtracker2.0-devel libtracker2.0-doc
+	girepository-Tracker2.0 vala-tracker2.0"
+tracker_CONTENTS="
+	etc/
+	usr/bin/tracker.exe
+	usr/libexec/
+	usr/share/bash-completion/
+	usr/share/dbus-1/
+	usr/share/doc/
+	usr/share/glib-2.0/schemas/
+	usr/share/locale/
+	usr/share/man/man1/
+	usr/share/tracker/
+"
+tracker_evolution_CONTENTS="usr/lib/evolution/"
+libtracker2_0_0_CONTENTS="
+	usr/bin/cygtracker-*-2.0-0.dll
+	usr/bin/cygtracker-*-2-0.dll
+"
+libtracker2_0_devel_CONTENTS="
+	usr/include/tracker-2.0/
+	usr/lib/libtracker-*-2.0.dll.a
+	usr/lib/tracker-2.0/libtracker-*.dll.a
+	usr/lib/pkgconfig/tracker-*-2.0.pc
+"
+libtracker2_0_doc_CONTENTS="usr/share/gtk-doc/"
+girepository_Tracker2_0_CONTENTS="usr/*/gir*/Tracker*-2.0.*"
+vala_tracker2_0_CONTENTS="usr/share/vala/vapi/tracker*-2.0.*"
+PKG_IGNORE="usr/lib/systemd/"
+
+DEPS_PATH="/usr/libexec"
+DIFF_EXCLUDES="configuration.py"
+
+# FTBFS with evo-3.6+
+CYGCONF_ARGS="--disable-miner-evolution"

@@ -1,0 +1,12 @@
+--- origsrc/tracker-2.0.3/src/libtracker-miner/tracker-monitor.c	2018-02-06 08:19:57.000000000 -0600
++++ src/tracker-2.0.3/src/libtracker-miner/tracker-monitor.c	2018-02-12 17:13:03.386732500 -0600
+@@ -275,7 +275,8 @@ tracker_monitor_init (TrackerMonitor *ob
+ 
+ 			priv->monitor_limit = get_kqueue_limit ();
+ 		}
+-		else if (strcmp (name, "GFamDirectoryMonitor") == 0) {
++		else if (strcmp (name, "GFamDirectoryMonitor") == 0 ||
++		         strcmp (name, "GFamFileMonitor") == 0) {
+ 			/* Using Fam */
+ 			g_debug ("Monitor backend is Fam");
+ 
