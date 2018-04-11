@@ -2,7 +2,7 @@ inherit gnome2
 
 NAME="tracker"
 VERSION=2.0.3
-RELEASE=1
+RELEASE=2
 CATEGORY="GNOME"
 SUMMARY="GNOME search tool and indexer"
 DESCRIPTION="Tracker is a powerful desktop-neutral first class object
